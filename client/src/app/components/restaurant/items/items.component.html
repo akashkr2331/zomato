@@ -1,0 +1,75 @@
+<app-profile [id]="id"></app-profile>
+
+
+
+
+
+<div class="container  mt-5 mb-5">
+  <h4>Add new foods</h4>
+  <form class="bg-secondary container" (ngSubmit)=onSubmit()>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1"  class="form-label">Name of the Food</label>
+        <input type="text" name="name" required minlength="4" [(ngModel)]="name" class="form-control" id="name" placeholder="name" >
+      </div>
+
+      <label for="exampleFormControlInput1"  class="form-label">Select category</label>
+      <select class="form-select" aria-label="Default select example" [(ngModel)]="category" name="selectedOption"> 
+        <option *ngFor="let option of categories" 
+                [value]="option.title"> 
+          {{ option.title }} 
+          </option> 
+    </select> 
+      
+      <div class="mb-3">
+        <label for="desc" class="form-label">image</label>
+        <input
+        id="file"
+        type="file"
+        required [(ngModel)]="image"
+        multiple={false}
+        (change)="onChange($event)"
+        name="image" class="form-control"  id="image" placeholder="choose file"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1"  class="form-label">Price of the Food</label>
+        <div style="display: flex; gap: 1em;">
+          <span class="text-dark">&#8377; </span><input type="number" name="price" required  [(ngModel)]="price" class="form-control" id="price" placeholder="0.00" >
+        </div>
+        
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Description</label>
+        <textarea class="form-control" [(ngModel)]="desc" id="desc" rows="3" name="desc"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary mt-2 mb-2">Add Item</button>
+  </form>
+
+
+</div>
+
+<div class="mt-5">
+
+  <h4 class="text-primary">Current foods on sale</h4>
+  <div class="container">
+    <!-- <h1>All Campgrounds</h1> -->
+    <div class="card" mb-3 *ngFor="let item of items">
+        <div class="row">
+            <div class="col-md-4">
+                <img crossorigin="anonymous" class="img-fluid" alt="" src={{item.image}} width="200" height="200">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{item.name}}</h5>
+                    <!-- <p class="card-text">{{item.category}}</p> -->
+                    <p class="card-text"><span class="text-dark">&#8377; </span>{{item.price}}</p>
+                    <p class="card-text">
+                        <small class="text-muted">{{item.category}}</small>
+                    </p>
+                    <button class="btn btn-danger" (click)="onDelete(item._id)">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>

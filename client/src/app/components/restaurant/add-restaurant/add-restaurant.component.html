@@ -1,0 +1,31 @@
+<form (ngSubmit)=onSubmit()>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1"  class="form-label">Name of the Restaurant</label>
+        <input type="text" name="name" required minlength="4" [(ngModel)]="name" class="form-control" id="name" placeholder="name" >
+      </div>
+      <div class="mb-3">
+        <label for="desc" class="form-label">image</label>
+        <input
+        id="file"
+        type="file"
+        required [(ngModel)]="image"
+        multiple={false}
+        (change)="onChange($event)"
+        name="image" class="form-control"  id="image" placeholder="choose file"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1"  class="form-label">Address</label>
+        <input type="text" name="address" required minlength="10" [(ngModel)]="address" class="form-control" id="address" placeholder="address" >
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1"  class="form-label">Email</label>
+        <input type="email" name="email" required minlength="4" [(ngModel)]="email" class="form-control" id="email" placeholder="email" >
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1"  class="form-label">Password</label>
+        <input type="password" name="password" required minlength="4" [(ngModel)]="password" class="form-control" id="password" placeholder="password" >
+      </div>
+      <button type="submit" class="btn btn-primary mb-3">Add Restaurant</button>
+  </form>
+  

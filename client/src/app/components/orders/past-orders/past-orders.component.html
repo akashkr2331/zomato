@@ -1,0 +1,42 @@
+
+<div *ngIf="!orders">
+  No Orders to Show
+
+</div>
+
+<!-- <div class="row align-items-between">
+    <div class="row justify-content-start" *ngFor="let order of orders" >
+      <div class="col-4">
+        <div class="row">
+          <img src={{order.item.image}} alt=""/>
+          <div>{{order.item.name}}</div>
+          <div><span>{{order.quantity}}</span> x <span>{{order.item.price}}</span></div>
+          <div>{{order.amount}}</div>
+          <div> Ordered from <span>{{order.restaurant.username}}</span> by <span>{{order.customer.username}}</span></div>
+          <div>{{order.status}}</div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="container">
+    <!-- <h1>All Campgrounds</h1> -->
+    <div class="card" mb-3 *ngFor="let order of orders">
+        <div class="row">
+            <div class="col-md-4">
+                <img crossorigin="anonymous" class="img-fluid" alt="" src={{order.item.image}} width="200" height="200">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{order.item.name}}</h5>
+                    <!-- <p class="card-text">{{item.category}}</p> -->
+                    <p class="card-text"><span class="text-dark">&#8377; </span> {{order.amount}}</p>
+                    <p class="card-text">
+                        <small class="text-muted"><span>{{order.quantity}}</span> x <span><span class="text-dark">&#8377; </span> {{order.item.price}}</span></small>
+                    </p>
+                    <p class="card-text">Ordered from <span>{{order.restaurant.username}}</span> by <span>{{order.customer.username}}</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>

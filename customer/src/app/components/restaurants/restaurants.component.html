@@ -1,0 +1,8 @@
+<div class="container text-center ">
+    <div class="row align-items-end" >
+      <div class="col mb-5 mr-5 bg-primary" *ngFor="let restaurant of restaurants" (click)="onClick(restaurant._id)">
+        <h5>{{restaurant.title}}</h5>
+        <img src={{restaurant.image}} width="400" height="200" priority alt="loading image..."/>
+      </div>
+    </div>
+  </div>
